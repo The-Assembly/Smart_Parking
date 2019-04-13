@@ -1,0 +1,54 @@
+[
+    {
+        "id": "63099767.0f11c8",
+        "type": "daemon",
+        "z": "3a1885d1.4af0fa",
+        "name": "Sensor",
+        "command": "python",
+        "args": "-u /home/pi/pi-rfid/ultra_test.py",
+        "autorun": true,
+        "cr": false,
+        "redo": true,
+        "op": "string",
+        "closer": "SIGKILL",
+        "x": 340,
+        "y": 360,
+        "wires": [
+            [
+                "735f60e8.d94c"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "735f60e8.d94c",
+        "type": "function",
+        "z": "3a1885d1.4af0fa",
+        "name": "JSON to OBject",
+        "func": "msg.payload = JSON.parse(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 580,
+        "y": 360,
+        "wires": [
+            [
+                "36d3bad0.42e096"
+            ]
+        ]
+    },
+    {
+        "id": "36d3bad0.42e096",
+        "type": "debug",
+        "z": "3a1885d1.4af0fa",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 790,
+        "y": 360,
+        "wires": []
+    }
+]
